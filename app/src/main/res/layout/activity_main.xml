@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/clockTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="100dp"
+        android:text="@string/clock_init_value"
+        android:textAlignment="center"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/startButton"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginBottom="10dp"
+        android:onClick="onStartButtonClick"
+        android:text="@string/start_btn_text"
+        android:textSize="35sp" />
+
+    <Button
+        android:id="@+id/stopButton"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginBottom="10dp"
+        android:onClick="onStopButtonClick"
+        android:text="@string/stop_btn_text"
+        android:textSize="35sp" />
+
+    <Button
+        android:id="@+id/resetButton"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginBottom="10dp"
+        android:onClick="onResetButtonClick"
+        android:text="@string/reset_btn_text"
+        android:textSize="35sp" />
+
+
+</LinearLayout>
