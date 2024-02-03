@@ -3,6 +3,7 @@ package com.shishkin.timecounter
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -17,11 +18,31 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.i("TIMER", "#ON-CREATE")
         setContentView(R.layout.activity_main)
         countTextView = findViewById(R.id.clockTextView)
         handler = Handler(Looper.getMainLooper())
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        Log.i("TIMER", "#ON-SAVE")
+        outState.putInt("seconds", seconds)
+        outState.putInt("minutes", minutes)
+        outState.putInt("hours", hours)
+        outState.putBoolean("isStarted", isStarted)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        Log.i("TIMER", "#ON-RESTORE")
+        seconds = savedInstanceState.getInt("seconds")
+        minutes = savedInstanceState.getInt("minutes")
+        hours = savedInstanceState.getInt("hours")
+        isStarted = savedInstanceState.getBoolean("isStarted")
+        countTextView.text = getOutputTime()
+        if (isStarted) handler.postDelayed(updatedTask(), 1000L)
+    }
 
     fun onStartButtonClick(view: View) {
         isStarted = true
